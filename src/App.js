@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
+import './App.css';
+
 import ReactMarkdown from 'react-markdown';
 
 export default function App() {
-  const [markDown, useMarkdown] = useState('');
+  const [markDown, usemarkdown] = useState(
+    '**Bold me like this  and see below**'
+  );
   return (
-    <main>
-      <section className="markdown">
-        <textarea
-          className="input"
-          value={markDown}
-          onChange={(e) => useMarkdown(e.target.value)}
-        ></textarea>
-        <article className="result">
-          <ReactMarkdown>{markDown}</ReactMarkdown>
-        </article>
+    <div className="App">
+      <textarea
+        className="input"
+        cols="30"
+        rows="10"
+        value={markDown}
+        onChange={(e) => {
+          usemarkdown(e.target.value);
+        }}
+      ></textarea>
+
+      <section className="result">
+        <ReactMarkdown>{markDown}</ReactMarkdown>
       </section>
-    </main>
+    </div>
   );
 }
